@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проект на VarWin | Материалы для скачивания</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            animation: rainbow 3s linear infinite;
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .download-section {
+            padding: 40px 30px;
+        }
+
+        .files-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .file-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-left: 5px solid #4a6491;
+            animation: slideInRight 0.6s ease-out both;
+        }
+
+        .file-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-left-color: #ff8a00;
+        }
+
+        .file-item:nth-child(1) { animation-delay: 0.1s; }
+        .file-item:nth-child(2) { animation-delay: 0.2s; }
+        .file-item:nth-child(3) { animation-delay: 0.3s; }
+        .file-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            padding: 22px 25px;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 500;
+        }
+
+        .file-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4a6491, #2c3e50);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .file-item:hover .file-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .file-info {
+            flex-grow: 1;
+        }
+
+        .file-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .file-desc {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .file-size {
+            color: #888;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .download-btn {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 114, 255, 0.4);
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+        }
+
+        .download-btn i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #f8f9fa;
+            color: #666;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #4a6491;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: #ff8a00;
+        }
+
+        .pulse {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .file-link { flex-direction: column; align-items: flex-start; }
+            .file-icon { margin-bottom: 15px; }
+            .download-btn { margin-top: 15px; align-self: flex-end; }
+            .container { border-radius: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            .header { padding: 30px 20px; }
+            .download-section { padding: 30px 20px; }
+            .file-link { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-download"></i> Проект на VarWin</h1>
+            <p><span class="pulse"></span>Все материалы готовы к скачиванию. Нажмите на кнопку "Скачать" для загрузки файлов на ваш компьютер.</p>
+        </header>
+
+        <section class="download-section">
+            <h2 style="font-family: 'Montserrat', sans-serif; color: #2c3e50; margin-bottom: 30px; font-size: 1.8rem;">
+                <i class="fas fa-folder-open"></i> Доступные файлы
+            </h2>
+            
+            <ul class="files-list">
+                <li class="file-item">
+                    <a href="проект.vwp" class="file-link" download>
+                        <div class="file-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">Проект VarWin (VWP)</div>
+                            <div class="file-desc">Основной файл проекта, созданный в среде разработки VarWin</div>
+                            <div class="file-size">~400 МБ • Формат .vwp</div>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Скачать
+                        </button>
+                    </a>
+                </li>
+                
+                <li class="file-item">
+                    <a href="проект.pptx" class="file-link" download>
+                        <div class="file-icon">
+                            <i class="fas fa-presentation"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">Презентация проекта (PPTX)</div>
+                            <div class="file-desc">Наглядная презентация с описанием проекта, целями и результатами</div>
+                            <div class="file-size">~10 МБ • Формат .pptx</div>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Скачать
+                        </button>
+                    </a>
+                </li>
+                
+                <li class="file-item">
+                    <a href="проект.mp4" class="file-link">
+                        <div class="file-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">Демонстрационное видео (MP4)</div>
+                            <div class="file-desc">Видеозапись работы проекта с комментариями и пояснениями</div>
+                            <div class="file-size">~45 МБ • Формат .mp4</div>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Скачать
+                        </button>
+                    </a>
+                </li>
+                
+                <li class="file-item">
+                    <a href="ПОЯСНИТЕЛЬНАЯ ЗАПИСКА12.docx" class="file-link" download>
+                        <div class="file-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="file-info">
+                            <div class="file-name">Пояснительная записка (DOCX)</div>
+                            <div class="file-desc">Подробное описание проекта, методологии, исходных данных и выводов</div>
+                            <div class="file-size">~5 МБ • Формат .docx</div>
+                        </div>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Скачать
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Проект на VarWin. Все права защищены.</p>
+            <p>Если у вас возникли проблемы со скачиванием, <a href="mailto:rzwtqq@gmail.com">свяжитесь с нами</a>.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
+                <i class="fas fa-exclamation-circle"></i> Файлы проверены на вирусы. Для открытия некоторых файлов могут потребоваться специальные программы.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Добавляем небольшую интерактивность
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Не отменяем стандартное поведение, так как кнопка внутри ссылки
+                    // Добавляем эффект нажатия
+                    this.style.transform = 'scale(0.95)';
+                    
+                    // Восстанавливаем через 150 мс
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Плавное появление элементов при загрузке
+            const fileItems = document.querySelectorAll('.file-item');
+            fileItems.forEach((item, index) => {
+                item.style.animationDelay = `${(index + 1) * 0.1}s`;
+            });
+            
+            // Добавляем эффект для иконок при наведении
+            const fileIcons = document.querySelectorAll('.file-icon');
+            fileIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, #ff8a00, #e52e71)';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, #4a6491, #2c3e50)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
